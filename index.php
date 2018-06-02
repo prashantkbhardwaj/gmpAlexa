@@ -12,11 +12,11 @@
 <body> 
     <table>
         <tr>
-            <td><div id="googleMap" style="width:800px;height:680px;"></div></td>  
+            <td><div id="googleMap" style="width:600px;height:480px;"></div></td>  
         </tr>
     </table>
     <br><br>  
-    <textarea style="display: none;" id="responsecontainer" ></textarea>
+    <textarea id="responsecontainer" ></textarea>
     <script>   
         $("#responsecontainer").load("select.php");
         var locate = [];
@@ -26,7 +26,10 @@
             locate = x.split(','); 
             if (locate[3] == "0") {
                 document.body.style.backgroundColor = "#87cefa";
-            } 
+            } else {
+                document.body.style.backgroundColor = "#87cefa";
+                
+            }
         }, 1000);
         $.ajaxSetup({ cache: false});  
 
