@@ -36,6 +36,7 @@
         $.ajaxSetup({ cache: false});  
 
         $('#responsecontainer').change(function() {
+            alert("changed")
             initialize(locate[0], locate[1], locate[2]);
         } );
 
