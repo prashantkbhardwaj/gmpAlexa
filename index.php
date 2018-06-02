@@ -34,7 +34,7 @@
         //     initialize(locate[0], locate[1], locate[2]);
         // } );
 
-        function initialize(lat, lon, placeName)
+        function initialize()
         {        
             var marker;     
             var marker_info;
@@ -53,7 +53,7 @@
                     document.getElementById("googleMap").style.zIndex = "11000000";
                 } else {
                     document.getElementById("googleMap").style.zIndex = "-1000000";
-                    var position=new google.maps.LatLng(lat, lon);       
+                    var position=new google.maps.LatLng(locate[0], locate[1]);       
                     if(marker != null){
                         marker.setMap(null);          
                     }
@@ -63,7 +63,7 @@
                     });
                     map.setCenter(position);    
                     marker_info = new google.maps.InfoWindow({
-                      content: placeName
+                      content: locate[2]
                     }); 
                     marker_info.open(map,marker);  
                     
