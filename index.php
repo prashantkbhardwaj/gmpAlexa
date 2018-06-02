@@ -12,7 +12,7 @@
 <body> 
     <table>
         <tr>
-            <td><div id="googleMap" style="width:1000px;height:780px;"></div></td>  
+            <td><div id="googleMap" style="width:1400px;height:780px;"></div></td>  
         </tr>
     </table>
     <br><br>  
@@ -32,8 +32,6 @@
                 mapTypeId: 'roadmap'
             };  
             var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-            var directionsService = new google.maps.DirectionsService;
-            var directionsDisplay = new google.maps.DirectionsRenderer;
             $(document).ready(function() {
                 $("#responsecontainer").load("select.php");
                 var refreshId = setInterval(function() {
@@ -57,28 +55,13 @@
                           content: locate[2]
                         }); 
                         marker_info.open(map,marker);  
-                        directionsDisplay.setMap(map);
-                        calculateAndDisplayRoute(directionsService, directionsDisplay);
+                        
                     }
                 }, 1000);
                 $.ajaxSetup({ cache: false}); 
             });
         }
-        google.maps.event.addDomListener(window, 'load', initialize);  
-
-        function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-            directionsService.route({
-                origin: locate[4],
-                destination: locate[5],
-                travelMode: 'DRIVING'
-            }, function(response, status) {
-                if (status === 'OK') {
-                    directionsDisplay.setDirections(response);
-                } else {
-                    window.alert('Directions request failed due to ' + status);
-                }
-            });
-        }    
+        google.maps.event.addDomListener(window, 'load', initialize);        
     </script>  
 
 </body>

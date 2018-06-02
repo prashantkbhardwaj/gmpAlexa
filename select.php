@@ -8,5 +8,5 @@
 		$check = "1";
 	}
 
-	echo $list['lat'].",".$list['lon'].",".$list['placeName'].",".$check.",".$list['source'].",".$list['dest'];
+	echo $list['lat'].",".$list['lon'].",".$list['placeName'].",".$check;
 ?>
