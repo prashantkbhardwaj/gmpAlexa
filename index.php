@@ -20,10 +20,11 @@
     <script>   
         $("#responsecontainer").load("select.php");
         var temp = false;
+        var locate = [];
         var refreshId = setInterval(function() {
             $("#responsecontainer").load('select.php?randval='+ Math.random());
             var x = document.getElementById("responsecontainer").value;
-            var locate = x.split(','); 
+            locate = x.split(','); 
             if (locate[3] == "0") {
                 document.body.style.backgroundColor = "#87cefa";
             } else {
@@ -34,7 +35,7 @@
         }, 1000);
         $.ajaxSetup({ cache: false});  
 
-        if (temp == true) {
+        if (temp === true) {
             initialize(locate[0], locate[1], locate[2]);
         }
 
