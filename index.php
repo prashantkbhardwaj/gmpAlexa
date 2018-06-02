@@ -12,7 +12,7 @@
 <body> 
     <table>
         <tr>
-            <td><div id="googleMap" style="width:800px;height:680px;"></div></td>  
+            <td><div id="googleMap" style="width:1000px;height:880px;"></div></td>  
         </tr>
     </table>
     <br><br>  
