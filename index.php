@@ -15,7 +15,7 @@
         </tr>
     </table>
     <br><br>  
-    <textarea style="display:none;" id="responsecontainer" ></textarea>
+    <textarea  id="responsecontainer" ></textarea>
     <script>    
         function initialize()
         {        
@@ -29,8 +29,8 @@
             var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
             
                 $("#responsecontainer").load("select.php");
-                var refreshId = setInterval(function() {
-                    $("#responsecontainer").load('select.php?randval='+ Math.random());
+                //var refreshId = setInterval(function() {
+                    //$("#responsecontainer").load('select.php?randval='+ Math.random());
                     var x = document.getElementById("responsecontainer").value;
                     var locate = x.split(',');
                     var position=new google.maps.LatLng(locate[0], locate[1]);       
@@ -47,8 +47,8 @@
                     }); 
                     marker_info.open(map,marker);               
                                                           
-                }, 1000);
-                $.ajaxSetup({ cache: false});       
+                //}, 1000);
+                //$.ajaxSetup({ cache: false});       
              
         }
         google.maps.event.addDomListener(window, 'load', initialize);       
