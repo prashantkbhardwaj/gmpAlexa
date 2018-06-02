@@ -33,7 +33,7 @@
         }, 1000);
         $.ajaxSetup({ cache: false});  
 
-        $('#responsecontainer').bind('propertychange change keyup paste input', function() {
+        $('#responsecontainer').on('propertychange change keyup paste input', function() {
             initialize(locate[0], locate[1], locate[2]);
         } );
 
