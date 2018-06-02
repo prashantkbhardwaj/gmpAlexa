@@ -12,14 +12,13 @@
 <body> 
     <table>
         <tr>
-            <td><div id="googleMap" style="width:600px;height:480px;"></div></td>  
+            <td><div id="googleMap" style="width:800px;height:680px;"></div></td>  
         </tr>
     </table>
     <br><br>  
-    <textarea id="responsecontainer" ></textarea>
+    <textarea style="display: none;" id="responsecontainer" ></textarea>
     <script>   
         $("#responsecontainer").load("select.php");
-        var temp = false;
         var locate = [];
         var refreshId = setInterval(function() {
             $("#responsecontainer").load('select.php?randval='+ Math.random());
@@ -29,7 +28,6 @@
                 document.body.style.backgroundColor = "#87cefa";
             } else {
                 document.body.style.backgroundColor = "white";
-                temp = true;
                 
             }
         }, 1000);
