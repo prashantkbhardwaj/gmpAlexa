@@ -44,36 +44,38 @@
                 mapTypeId: 'roadmap'
             };  
             var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-            $("#responsecontainer").load("select.php");
-            var refreshId = setInterval(function() {
-                $("#responsecontainer").load('select.php?randval='+ Math.random());
-                var x = document.getElementById("responsecontainer").value;
-                locate = x.split(','); 
-                if (locate[3] == "0") {
-                    document.getElementById("googleMap").style.zIndex = "11000000";
-                } else {
-                    document.getElementById("googleMap").style.zIndex = "-1000000";
-                    var position=new google.maps.LatLng(locate[0], locate[1]);       
-                    if(marker != null){
-                        marker.setMap(null);          
+            $(document).ready(function() {
+                $("#responsecontainer").load("select.php");
+                var refreshId = setInterval(function() {
+                    $("#responsecontainer").load('select.php?randval='+ Math.random());
+                    var x = document.getElementById("responsecontainer").value;
+                    locate = x.split(','); 
+                    if (locate[3] == "0") {
+                        document.getElementById("googleMap").style.zIndex = "11000000";
+                    } else {
+                        document.getElementById("googleMap").style.zIndex = "-1000000";
+                        var position=new google.maps.LatLng(locate[0], locate[1]);       
+                        if(marker != null){
+                            marker.setMap(null);          
+                        }
+                        marker = new google.maps.Marker({
+                            position: position,
+                            map: map,            
+                        });
+                        map.setCenter(position);    
+                        marker_info = new google.maps.InfoWindow({
+                          content: locate[2]
+                        }); 
+                        marker_info.open(map,marker);  
+                        
                     }
-                    marker = new google.maps.Marker({
-                        position: position,
-                        map: map,            
-                    });
-                    map.setCenter(position);    
-                    marker_info = new google.maps.InfoWindow({
-                      content: locate[2]
-                    }); 
-                    marker_info.open(map,marker);  
-                    
-                }
-            }, 1000);
-            $.ajaxSetup({ cache: false}); 
+                }, 1000);
+                $.ajaxSetup({ cache: false}); 
+            });
 
             
         }
-               
+        google.maps.event.addDomListener(window, 'load', initialize);        
     </script>  
 
 </body>
