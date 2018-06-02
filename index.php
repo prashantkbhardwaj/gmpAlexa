@@ -4,7 +4,7 @@
 <head>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8hbCo346Mcq6rHyTE3Niwn5gVhaWwKcs"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/core.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 
 </head>
 
@@ -27,7 +27,7 @@
                 mapTypeId: 'roadmap'
             };  
             var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-            $(document).ready(function() {
+            
                 $("#responsecontainer").load("select.php");
                 var refreshId = setInterval(function() {
                     $("#responsecontainer").load('select.php?randval='+ Math.random());
@@ -49,7 +49,7 @@
                                                           
                 }, 1000);
                 $.ajaxSetup({ cache: false});       
-            }); 
+             
         }
         google.maps.event.addDomListener(window, 'load', initialize);       
     </script>  
