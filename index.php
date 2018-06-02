@@ -26,10 +26,7 @@
             locate = x.split(','); 
             if (locate[3] == "0") {
                 document.body.style.backgroundColor = "#87cefa";
-            } else {
-                document.body.style.backgroundColor = "white";
-                
-            }
+            } 
         }, 1000);
         $.ajaxSetup({ cache: false});  
 
