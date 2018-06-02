@@ -32,10 +32,6 @@
                 mapTypeId: 'roadmap'
             };  
             var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-            var image = {
-                url: 'http://medicento.com/gmpAlexa/markIco.png',
-                size: new google.maps.Size(20, 32)
-              };
             $(document).ready(function() {
                 $("#responsecontainer").load("select.php");
                 var refreshId = setInterval(function() {
@@ -52,8 +48,7 @@
                         }
                         marker = new google.maps.Marker({
                             position: position,
-                            map: map,
-                            icon: image            
+                            map: map          
                         });
                         map.setCenter(position);    
                         marker_info = new google.maps.InfoWindow({
