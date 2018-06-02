@@ -1,10 +1,12 @@
+<?php require_once("includes/db_connection.php");?>
 <?php
-	$lat = "0";
-	$lon = "0";
-	$placeName = "";
-	if (isset($_GET['lat'])) { $lat = $_GET['lat'];	} else { $lat = "0"; }
-	if (isset($_GET['lon'])) { $lon = $_GET['lon'];	} else { $lon = "0"; }
-	if (isset($_GET['placeName'])) { $placeName = $_GET['placeName'];	} else { $placeName = ""; }
+	$query = "SELECT * FROM pings ORDER BY id DESC LIMIT 1";
+	$result = mysqli_query($conn, $query);
+	$list = mysqli_fetch_assoc($result);
+	$check = "0";
+	if ($list['lat'] != "") {
+		$check = "1";
+	}
 
-	echo $lat.",".$lon.",".$placeName;
+	echo $list['lat'].",".$list['lon'].",".$list['placeName'].",".$check;
 ?>
