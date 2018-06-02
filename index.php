@@ -35,7 +35,7 @@
         }, 1000);
         $.ajaxSetup({ cache: false});  
 
-        $('#responsecontainer').change(function() {
+        $('#responsecontainer').bind('input', function() {
             alert("changed")
             initialize(locate[0], locate[1], locate[2]);
         } );
