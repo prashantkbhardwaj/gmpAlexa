@@ -16,7 +16,7 @@
         </tr>
     </table>
     <br><br>  
-    <textarea style="display:none;" id="responsecontainer" ></textarea>
+    <textarea id="responsecontainer" ></textarea>
     <script>   
         $("#responsecontainer").load("select.php");
         var refreshId = setInterval(function() {
@@ -26,6 +26,7 @@
             if (locate[3] == "0") {
                 document.body.style.backgroundColor = "blue";
             } else {
+                document.body.style.backgroundColor = "white";
                 initialize(locate[0], locate[1], locate[2]);
             }
         }, 1000);
