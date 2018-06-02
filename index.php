@@ -33,9 +33,16 @@
         }, 1000);
         $.ajaxSetup({ cache: false});  
 
-        $('#responsecontainer').on('propertychange change keyup paste input', function() {
-            initialize(locate[0], locate[1], locate[2]);
-        } );
+        $("#responsecontainer").on("input",function(e){
+         if($(this).data("lastval")!= $(this).val()){
+             $(this).data("lastval",$(this).val());
+             initialize(locate[0], locate[1], locate[2]); 
+         };
+        });
+
+        // $('#responsecontainer').on('propertychange change keyup paste input', function() {
+        //     initialize(locate[0], locate[1], locate[2]);
+        // } );
 
         function initialize(lat, lon, placeName)
         {        
