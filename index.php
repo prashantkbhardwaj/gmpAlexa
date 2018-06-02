@@ -12,7 +12,7 @@
 <body> 
     <table>
         <tr>
-            <td><div id="googleMap" style="width:1400px;height:780px;"></div></td>  
+            <td><div id="googleMap" style="width:1450px;height:780px;"></div></td>  
         </tr>
     </table>
     <br><br>  
@@ -48,7 +48,8 @@
                         }
                         marker = new google.maps.Marker({
                             position: position,
-                            map: map,            
+                            map: map,
+                            icon: markIcon.png            
                         });
                         map.setCenter(position);    
                         marker_info = new google.maps.InfoWindow({
