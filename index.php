@@ -33,7 +33,7 @@
             };  
             var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
             var image = {
-                url: 'markIco.png',
+                url: 'http://medicento.com/gmpAlexa/markIco.png',
                 size: new google.maps.Size(20, 32)
               };
             $(document).ready(function() {
