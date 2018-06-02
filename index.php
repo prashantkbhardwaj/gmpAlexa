@@ -35,9 +35,9 @@
         }, 1000);
         $.ajaxSetup({ cache: false});  
 
-        if (temp === true) {
+        $('#responsecontainer').change(function() {
             initialize(locate[0], locate[1], locate[2]);
-        }
+        } );
 
         function initialize(lat, lon, placeName)
         {        
