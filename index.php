@@ -1,22 +1,62 @@
-<?php
-	$lat = "0";
-	$lon = "0";
-	$placeName = "";
-	if (isset($_GET['lat'])) { $lat = $_GET['lat'];	} else { $lat = "0"; }
-	if (isset($_GET['lon'])) { $lon = $_GET['lon'];	} else { $lon = "0"; }
-	if (isset($_GET['placeName'])) { $placeName = $_GET['placeName'];	} else { $placeName = ""; }
-?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<title></title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8hbCo346Mcq6rHyTE3Niwn5gVhaWwKcs"></script>
+
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+
 </head>
-<input type="text" id="pop" name="lat" onchange="showPop()">
-<body>
-<script type="text/javascript">
-	function showPop(){
-		alert(document.getElementById("pop").value);
-	}
-</script>
+
+<body> 
+    <table>
+        <tr>
+            <td><div id="googleMap" style="width:600px;height:480px;"></div></td>  
+        </tr>
+    </table>
+    <br><br>  
+    <textarea style="display:none;" id="responsecontainer" ></textarea>
+    <script>    
+        function initialize()
+        {        
+            var marker;     
+            var marker_info;
+            var mapProp = { 
+                center: new google.maps.LatLng(0,0),        
+                zoom:18,
+                mapTypeId: 'roadmap'
+            };  
+            var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+            $(document).ready(function() {
+                $("#responsecontainer").load("select.php");
+                var refreshId = setInterval(function() {
+                    $("#responsecontainer").load('select.php?randval='+ Math.random());
+                    var x = document.getElementById("responsecontainer").value;
+                    var locate = x.split(',');
+                    var position=new google.maps.LatLng(locate[0], locate[1]);       
+                    if(marker != null){
+                        marker.setMap(null);          
+                    }
+                    marker = new google.maps.Marker({
+                        position: position,
+                        map: map,            
+                    });
+                    map.setCenter(position);    
+                    marker_info = new google.maps.InfoWindow({
+                      content: locate[2]
+                    }); 
+                    marker_info.open(map,marker);               
+                                                          
+                }, 1000);
+                $.ajaxSetup({ cache: false});       
+            }); 
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);       
+    </script>   
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
 </body>
+
 </html>
