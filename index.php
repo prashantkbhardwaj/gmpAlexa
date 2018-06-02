@@ -12,27 +12,15 @@
 <body> 
     <table>
         <tr>
-            <td><div id="googleMap" style="width:600px;height:480px;"></div></td>  
+            <td><div id="googleMap" style="width:800px;height:680px;"></div></td>  
         </tr>
     </table>
     <br><br>  
-    <textarea id="responsecontainer" ></textarea>
+    <textarea style="display: none;" id="responsecontainer" ></textarea>
     <script>   
         document.body.style.backgroundColor = "#87cefa";
         
         var locate = [];
-         
-
-        // $("#responsecontainer").on("input",function(e){
-        //  if($(this).data("lastval")!= $(this).val()){
-        //      $(this).data("lastval",$(this).val());
-        //      initialize(locate[0], locate[1], locate[2]); 
-        //  };
-        // });
-
-        // $('#responsecontainer').on('propertychange change keyup paste input', function() {
-        //     initialize(locate[0], locate[1], locate[2]);
-        // } );
 
         function initialize()
         {        
