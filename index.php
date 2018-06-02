@@ -19,7 +19,7 @@
     <textarea id="responsecontainer" ></textarea>
     <script>   
         document.body.style.backgroundColor = "#87cefa";
-        $("#responsecontainer").load("select.php");
+        
         var locate = [];
          
 
@@ -44,7 +44,7 @@
                 mapTypeId: 'roadmap'
             };  
             var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-
+            $("#responsecontainer").load("select.php");
             var refreshId = setInterval(function() {
                 $("#responsecontainer").load('select.php?randval='+ Math.random());
                 var x = document.getElementById("responsecontainer").value;
