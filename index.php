@@ -12,7 +12,7 @@
 <body> 
     <table>
         <tr>
-            <td><div id="googleMap" style="width:1450px;height:780px;"></div></td>  
+            <td><div id="googleMap" style="width:1410px;height:780px;"></div></td>  
         </tr>
     </table>
     <br><br>  
@@ -32,6 +32,10 @@
                 mapTypeId: 'roadmap'
             };  
             var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+            var image = {
+                url: 'markIco.png',
+                size: new google.maps.Size(20, 32)
+              };
             $(document).ready(function() {
                 $("#responsecontainer").load("select.php");
                 var refreshId = setInterval(function() {
@@ -49,7 +53,7 @@
                         marker = new google.maps.Marker({
                             position: position,
                             map: map,
-                            icon: markIcon.png            
+                            icon: image            
                         });
                         map.setCenter(position);    
                         marker_info = new google.maps.InfoWindow({
