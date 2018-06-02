@@ -1,0 +1,33 @@
+.gcontainer {
+    margin: 0 auto;
+    overflow: hidden;
+    width: 650px; 
+}
+
+.svg {
+    float: left;
+}
+
+#row-one .svg {
+    height: 0;
+    margin-top: 0px;
+}
+
+#row-two .svg {
+    height: 0;
+    margin-top: 8px;
+}
+
+.quad {
+    height: 0;
+    padding-bottom: 33.33%;
+    width: 33%;
+    float: left
+}
+#gwrapper {
+    height: 500px;
+    width: 656px;
+    
+    
+    overflow: hidden;
+}
