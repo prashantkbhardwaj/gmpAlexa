@@ -18,27 +18,17 @@
     <br><br>  
     <textarea id="responsecontainer" ></textarea>
     <script>   
+        document.body.style.backgroundColor = "#87cefa";
         $("#responsecontainer").load("select.php");
         var locate = [];
-        var refreshId = setInterval(function() {
-            $("#responsecontainer").load('select.php?randval='+ Math.random());
-            var x = document.getElementById("responsecontainer").value;
-            locate = x.split(','); 
-            if (locate[3] == "0") {
-                document.body.style.backgroundColor = "#87cefa";
-            } else {
-                document.body.style.backgroundColor = "#87cefa";
-                
-            }
-        }, 1000);
-        $.ajaxSetup({ cache: false});  
+         
 
-        $("#responsecontainer").on("input",function(e){
-         if($(this).data("lastval")!= $(this).val()){
-             $(this).data("lastval",$(this).val());
-             initialize(locate[0], locate[1], locate[2]); 
-         };
-        });
+        // $("#responsecontainer").on("input",function(e){
+        //  if($(this).data("lastval")!= $(this).val()){
+        //      $(this).data("lastval",$(this).val());
+        //      initialize(locate[0], locate[1], locate[2]); 
+        //  };
+        // });
 
         // $('#responsecontainer').on('propertychange change keyup paste input', function() {
         //     initialize(locate[0], locate[1], locate[2]);
@@ -54,19 +44,34 @@
                 mapTypeId: 'roadmap'
             };  
             var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-            var position=new google.maps.LatLng(lat, lon);       
-            if(marker != null){
-                marker.setMap(null);          
-            }
-            marker = new google.maps.Marker({
-                position: position,
-                map: map,            
-            });
-            map.setCenter(position);    
-            marker_info = new google.maps.InfoWindow({
-              content: placeName
-            }); 
-            marker_info.open(map,marker);  
+
+            var refreshId = setInterval(function() {
+                $("#responsecontainer").load('select.php?randval='+ Math.random());
+                var x = document.getElementById("responsecontainer").value;
+                locate = x.split(','); 
+                if (locate[3] == "0") {
+                    document.getElementById("googleMap").style.zIndex = "11000000";
+                } else {
+                    document.getElementById("googleMap").style.zIndex = "-1000000";
+                    var position=new google.maps.LatLng(lat, lon);       
+                    if(marker != null){
+                        marker.setMap(null);          
+                    }
+                    marker = new google.maps.Marker({
+                        position: position,
+                        map: map,            
+                    });
+                    map.setCenter(position);    
+                    marker_info = new google.maps.InfoWindow({
+                      content: placeName
+                    }); 
+                    marker_info.open(map,marker);  
+                    
+                }
+            }, 1000);
+            $.ajaxSetup({ cache: false}); 
+
+            
         }
                
     </script>  
