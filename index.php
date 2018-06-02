@@ -52,7 +52,7 @@
                         });
                         map.setCenter(position);    
                         marker_info = new google.maps.InfoWindow({
-                          content: locate[2]
+                          content: locate[2]+", "+locate[4]+"<br>ETA: "+locate[5]
                         }); 
                         marker_info.open(map,marker);  
                         
