@@ -4,7 +4,7 @@
 <head>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8hbCo346Mcq6rHyTE3Niwn5gVhaWwKcs"></script>
 
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/core.js"></script>
 
 </head>
 
@@ -52,10 +52,7 @@
             }); 
         }
         google.maps.event.addDomListener(window, 'load', initialize);       
-    </script>   
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    </script>  
 
 </body>
 
