@@ -39,7 +39,7 @@
                     var x = document.getElementById("responsecontainer").value;
                     locate = x.split(','); 
                     if (locate[3] == "0") {
-                        document.getElementById("googleMap").style.zIndex = "11000000";
+                        marker.setMap(null);
                     } else {
                         document.getElementById("googleMap").style.zIndex = "-1000000";
                         var position=new google.maps.LatLng(locate[0], locate[1]);       
