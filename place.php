@@ -7,6 +7,6 @@
     if (isset($_GET['lon'])) { $lon = $_GET['lon']; } else { $lon = "0"; }
     if (isset($_GET['placeName'])) { $placeName = $_GET['placeName'];   } else { $placeName = "0"; }
 
-    $query = "INSERT INTO pings (lat, lon, placeName) VALUES ('{$lat}', '{$lon}', '{$placename}')";
+    $query = "INSERT INTO pings (lat, lon, placeName) VALUES ('{$lat}', '{$lon}', '{$placeName}')";
    	mysqli_query($conn, $query);
 ?>

@@ -24,7 +24,7 @@
             var x = document.getElementById("responsecontainer").value;
             var locate = x.split(','); 
             if (locate[3] == "0") {
-                document.body.style.backgroundColor = "blue";
+                document.body.style.backgroundColor = "#87cefa";
             } else {
                 document.body.style.backgroundColor = "white";
                 initialize(locate[0], locate[1], locate[2]);
