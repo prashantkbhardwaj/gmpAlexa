@@ -1,14 +1,10 @@
 <?php require_once("includes/db_connection.php");?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8hbCo346Mcq6rHyTE3Niwn5gVhaWwKcs"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-
 </head>
-
 <body> 
     <table>
         <tr>
@@ -19,9 +15,7 @@
     <textarea style="display: none;" id="responsecontainer" ></textarea>
     <script>   
         document.body.style.backgroundColor = "#87cefa";
-        
         var locate = [];
-
         function initialize()
         {        
             var marker;     
@@ -41,7 +35,6 @@
                     if (locate[3] == "0") {
                         marker.setMap(null);
                     } else {
-                        document.getElementById("googleMap").style.zIndex = "-1000000";
                         var position=new google.maps.LatLng(locate[0], locate[1]);       
                         if(marker != null){
                             marker.setMap(null);          
@@ -55,7 +48,6 @@
                           content: locate[2]
                         }); 
                         marker_info.open(map,marker);  
-                        
                     }
                 }, 1000);
                 $.ajaxSetup({ cache: false}); 
@@ -63,7 +55,5 @@
         }
         google.maps.event.addDomListener(window, 'load', initialize);        
     </script>  
-
 </body>
-
 </html>
